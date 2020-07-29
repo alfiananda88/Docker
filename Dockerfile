@@ -1,4 +1,12 @@
-FROM debian:buster-slim
+FROM ubuntu:groovy
+LABEL maintainer "Alfiananda P.A <genengbendo12@gmail.com>"
+
+RUN ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+RUN apt update && apt -y upgrade && apt install -y tzdata locales
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
@@ -169,7 +177,7 @@ RUN wget -N https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedrive
     mv -f ~/chromedriver /usr/bin/chromedriver && \
     chown root:root /usr/bin/chromedriver && \
     chmod 0755 /usr/bin/chromedriver
-
+    
 # Install python requirements
 RUN pip3 install -r https://raw.githubusercontent.com/alfianandaa/ProjectBish/master/requirements.txt
 

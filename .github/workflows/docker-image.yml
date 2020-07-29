@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ groovy ]
   pull_request:
-    branches: [ master ]
+    branches: [ groovy ]
   schedule:
     - cron: '0 0 * * *' # Auto build Docker every midnight
 
@@ -24,4 +24,4 @@ jobs:
           function sendTG() {
           curl -s "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendmessage" --data "text=${*}&chat_id=${{ secrets.TELEGRAM_TO }}&parse_mode=Markdown"
           }
-          sendTG "\`I have pushed new images to docker\` %0A ${{ secrets.LINK }}" &> /dev/null
+          sendTG "\`I have pushed new images to docker\` %0A ${{ secrets.LINK2 }}" &> /dev/null
