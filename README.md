@@ -1,6 +1,6 @@
 # Docker
 
-Docker image for [ProjectBish](https://github.com/alfianandaa/ProjectBish)
+Docker image for [ProjectBish](https://github.com/alfianandaa/ProjectBish) UserBot
 
 # Status
 
